@@ -1,114 +1,218 @@
 import { useState } from "react";
-import { Box, Container, Grid, Typography, useTheme } from "@mui/material";
+import { Box, Container, Typography, useTheme } from "@mui/material";
+import LightModeRoundedIcon from "@mui/icons-material/LightModeRounded";
+import DarkModeRoundedIcon from "@mui/icons-material/DarkModeRounded";
 import PricingCard from "../PricingCard";
 import { pricingPlans } from "../../data/pricingData";
+import { useColorMode } from "../../context/ColorModeContext";
 
 export default function PricingSection() {
   const theme = useTheme();
+  const { mode, toggleColorMode } = useColorMode();
   const [selectedId, setSelectedId] = useState<string>("scale");
+  const isDark = mode === "dark";
+
+  const blue = theme.palette.primary.main;
+  const blueLight = theme.palette.primary.light;
 
   return (
     <Box
       component="section"
       sx={{
-        py: { xs: 8, md: 12 },
-        px: { xs: 2, sm: 3 },
-        background: `linear-gradient(180deg, ${theme.palette.background.default} 0%, #E8E9F0 100%)`,
+        position: "relative",
+        overflow: "hidden",
         minHeight: "100vh",
+        py: { xs: 10, md: 14 },
+        px: { xs: 2, sm: 3 },
+        background: isDark
+          ? "radial-gradient(ellipse 80% 60% at 50% -10%, #1B3DFF22 0%, transparent 70%), linear-gradient(180deg, #080B18 0%, #0A0D1F 100%)"
+          : "radial-gradient(ellipse 80% 60% at 50% -10%, #1B3DFF18 0%, transparent 70%), linear-gradient(180deg, #F0EFF9 0%, #E8E7F5 100%)",
+        transition: "background 0.5s ease",
       }}
     >
-      <Container maxWidth="xl">
-        {/* Section Header */}
-        <Box sx={{ textAlign: "center", mb: { xs: 6, md: 8 } }}>
-          <Typography
-            component="span"
-            sx={{
-              display: "inline-block",
-              bgcolor: `${theme.palette.primary.main}14`,
-              color: theme.palette.primary.main,
-              fontWeight: 700,
-              fontSize: "0.78rem",
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              px: 2,
-              py: 0.75,
-              borderRadius: 10,
-              mb: 2,
-            }}
-          >
-            Pricing Plans
-          </Typography>
+      {/* Decorative background orbs */}
+      <Box
+        aria-hidden
+        sx={{
+          position: "absolute",
+          width: 600,
+          height: 600,
+          borderRadius: "50%",
+          top: "-200px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          background: isDark
+            ? `radial-gradient(circle, ${blue}18 0%, transparent 70%)`
+            : `radial-gradient(circle, ${blue}12 0%, transparent 70%)`,
+          pointerEvents: "none",
+          filter: "blur(40px)",
+        }}
+      />
+      <Box
+        aria-hidden
+        sx={{
+          position: "absolute",
+          width: 300,
+          height: 300,
+          borderRadius: "50%",
+          bottom: "10%",
+          right: "5%",
+          background: isDark
+            ? `radial-gradient(circle, ${blueLight}14 0%, transparent 70%)`
+            : `radial-gradient(circle, ${blueLight}10 0%, transparent 70%)`,
+          pointerEvents: "none",
+          filter: "blur(60px)",
+        }}
+      />
 
+      <Container maxWidth="xl" sx={{ position: "relative", zIndex: 1 }}>
+        {/* ── Header ── */}
+        <Box sx={{ textAlign: "center", mb: { xs: 8, md: 12 } }}>
+          {/* Main headline */}
           <Typography
             variant="h2"
             sx={{
-              fontSize: { xs: "2rem", sm: "2.5rem", md: "3rem" },
+              fontSize: {
+                xs: "2.4rem",
+                sm: "3.2rem",
+                md: "4rem",
+                lg: "4.5rem",
+              },
               fontWeight: 900,
               color: theme.palette.text.primary,
-              letterSpacing: "-0.03em",
-              mb: 1.5,
+              letterSpacing: "-0.04em",
+              lineHeight: 1.05,
+              mb: 2.5,
+              "& em": {
+                fontStyle: "normal",
+                background: `linear-gradient(135deg, ${blue} 0%, ${blueLight} 100%)`,
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+              },
             }}
           >
-            ხატიას ძალიან მაგარი საიტი
+            ხატიას <em>ძალიან</em> მაგარი საიტი
           </Typography>
 
           <Typography
             variant="body1"
             sx={{
               color: theme.palette.text.secondary,
-              maxWidth: 520,
+              maxWidth: 480,
               mx: "auto",
-              fontSize: "1rem",
+              fontSize: "1.05rem",
+              lineHeight: 1.7,
+              mb: 4,
             }}
           >
-            აქ შეგიძლია რამე მოკლე ტექსტი დაწერო, რომლითაც ადამიანი უბრალოდ
-            მიხვდება საიტზე რა უნდა, ანუ რომ შეარჩიოს მისთვის სასურველი გეგმა
-            რააა...
+            აქ შეგიძლია რამე მოკლე ტექსტი დაწერო, რომლითაც ადამიანი მიხვდება
+            საიტზე რა უნდა.
           </Typography>
-        </Box>
 
-        {/* Cards Grid */}
-        <Grid container spacing={{ xs: 2.5, md: 3 }} justifyContent="center">
-          {pricingPlans.map((plan) => (
-            <Grid
-              key={plan.id}
-              item
-              xs={12}
-              sm={6}
-              md={4}
-              lg={4}
+          {/* Dark mode toggle */}
+          <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1.5 }}>
+            <LightModeRoundedIcon
               sx={{
-                display: "flex",
-                /* Push featured card slightly up on desktop */
-                mt: plan.featured ? { md: -2 } : 0,
+                fontSize: "1rem",
+                color: isDark ? theme.palette.text.secondary : blue,
+                transition: "color 0.35s ease",
+              }}
+            />
+            <Box
+              role="switch"
+              aria-checked={isDark}
+              aria-label="Toggle dark mode"
+              onClick={toggleColorMode}
+              sx={{
+                position: "relative",
+                width: 48,
+                height: 26,
+                borderRadius: 13,
+                bgcolor: isDark ? blue : theme.palette.divider,
+                border: `1.5px solid ${isDark ? blue : theme.palette.divider}`,
+                cursor: "pointer",
+                transition: "background-color 0.35s cubic-bezier(0.4,0,0.2,1)",
+                "&:hover": { boxShadow: `0 0 0 3px ${blue}28` },
               }}
             >
-              <Box sx={{ width: "100%" }}>
-                <PricingCard
-                  plan={plan}
-                  isSelected={selectedId === plan.id}
-                  onSelect={() => setSelectedId(plan.id)}
-                />
-              </Box>
-            </Grid>
-          ))}
-        </Grid>
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 3,
+                  left: isDark ? 22 : 3,
+                  width: 16,
+                  height: 16,
+                  borderRadius: "50%",
+                  bgcolor: "#fff",
+                  transition: "left 0.35s cubic-bezier(0.4,0,0.2,1)",
+                  boxShadow: "0 1px 4px rgba(0,0,0,0.25)",
+                }}
+              />
+            </Box>
+            <DarkModeRoundedIcon
+              sx={{
+                fontSize: "1rem",
+                color: isDark ? blueLight : theme.palette.text.secondary,
+                transition: "color 0.35s ease",
+              }}
+            />
+          </Box>
+        </Box>
 
-        {/* Bottom note */}
-        <Box sx={{ textAlign: "center", mt: 6 }}>
+        {/* ── Cards ── */}
+        <Box
+          sx={{
+            display: "flex",
+            flexWrap: { xs: "wrap", lg: "nowrap" },
+            gap: { xs: 2, md: 3 },
+            justifyContent: "center",
+            alignItems: "stretch",
+          }}
+        >
+          {pricingPlans.map((plan) => (
+            <Box
+              key={plan.id}
+              sx={{
+                flex: {
+                  xs: "1 1 100%",
+                  sm: "1 1 calc(50% - 8px)",
+                  lg: selectedId === plan.id ? "1.6 1 0" : "1.4 1 0",
+                },
+                position: "relative",
+                zIndex: selectedId === plan.id ? 2 : 0,
+                minWidth: 0,
+                display: "flex",
+                transition: "flex-grow 0.3s cubic-bezier(0.4,0,0.2,1)",
+              }}
+            >
+              <PricingCard
+                plan={plan}
+                isSelected={selectedId === plan.id}
+                onSelect={() => setSelectedId(plan.id)}
+              />
+            </Box>
+          ))}
+        </Box>
+
+        {/* ── Bottom note ── */}
+        <Box sx={{ textAlign: "center", mt: 7 }}>
           <Typography
             variant="body2"
-            sx={{ color: theme.palette.text.secondary }}
+            sx={{ color: theme.palette.text.secondary, fontSize: "0.82rem" }}
           >
             All prices are in Georgian Lari (GEL) and exclude VAT.{" "}
             <Box
               component="a"
               href="#contact"
               sx={{
-                color: theme.palette.primary.main,
-                fontWeight: 600,
+                color: blue,
+                fontWeight: 700,
                 textDecoration: "none",
-                "&:hover": { textDecoration: "underline" },
+                borderBottom: `1px solid ${blue}50`,
+                pb: "1px",
+                transition: "border-color 0.2s",
+                "&:hover": { borderColor: blue },
               }}
             >
               Contact us

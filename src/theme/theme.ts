@@ -1,78 +1,115 @@
-import { createTheme } from '@mui/material/styles';
+import { createTheme, type ThemeOptions } from "@mui/material/styles";
 
-declare module '@mui/material/styles' {
+declare module "@mui/material/styles" {
   interface Palette {
-    accent: Palette['primary'];
+    accent: Palette["primary"];
   }
   interface PaletteOptions {
-    accent?: PaletteOptions['primary'];
+    accent?: PaletteOptions["primary"];
   }
 }
 
-const theme = createTheme({
-  palette: {
-    mode: 'light',
-    primary: {
-      main: '#4F46E5',    // Indigo
-      light: '#6366F1',
-      dark: '#3730A3',
-      contrastText: '#ffffff',
-    },
-    secondary: {
-      main: '#6366F1',    // Light Indigo
-      light: '#818CF8',
-      dark: '#4338CA',
-      contrastText: '#ffffff',
-    },
-    accent: {
-      main: '#6366F1',    // Light Indigo
-      light: '#818CF8',
-      dark: '#4338CA',
-      contrastText: '#ffffff',
-    },
-    background: {
-      default: '#F3F4F6',   // Cool Grey
-      paper: '#FFFFFF',     // Pure White
-    },
-    text: {
-      primary: '#111827',   // Rich Obsidian
-      secondary: '#6B7280', // gray-500
-    },
-    divider: '#E5E7EB',
-  },
+const sharedConfig: Omit<ThemeOptions, "palette"> = {
   typography: {
     fontFamily: '"Noto Sans Georgian", system-ui, -apple-system, sans-serif',
-    h1: { fontWeight: 800, letterSpacing: '-0.025em' },
-    h2: { fontWeight: 800, letterSpacing: '-0.02em' },
-    h3: { fontWeight: 700, letterSpacing: '-0.015em' },
+    h1: { fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.0, textWrap: "balance" as const },
+    h2: { fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.0, textWrap: "balance" as const },
+    h3: { fontWeight: 800, letterSpacing: "-0.025em", textWrap: "balance" as const },
     h4: { fontWeight: 700 },
-    h5: { fontWeight: 600 },
+    h5: { fontWeight: 700 },
     h6: { fontWeight: 600 },
-    body1: { fontSize: '0.9375rem', lineHeight: 1.6 },
-    body2: { fontSize: '0.875rem', lineHeight: 1.5 },
+    body1: { fontSize: "0.9375rem", lineHeight: 1.7 },
+    body2: { fontSize: "0.875rem", lineHeight: 1.6 },
   },
-  shape: {
-    borderRadius: 16,
-  },
+  shape: { borderRadius: 12 },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
-          textTransform: 'none',
-          fontWeight: 600,
-          borderRadius: 10,
-          padding: '10px 24px',
+          textTransform: "none",
+          fontWeight: 700,
+          borderRadius: 8,
+          padding: "11px 28px",
+          letterSpacing: "0.01em",
         },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
-          boxShadow: '0 1px 4px rgba(26,10,5,0.07), 0 1px 2px rgba(26,10,5,0.05)',
+          backgroundImage: "none",
         },
       },
     },
   },
+};
+
+export const lightTheme = createTheme({
+  ...sharedConfig,
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#1B3DFF",
+      light: "#4F6BFF",
+      dark: "#0F25CC",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      main: "#4F6BFF",
+      light: "#deebff",
+      dark: "#1B3DFF",
+      contrastText: "#ffffff",
+    },
+    accent: {
+      main: "#4F6BFF",
+      light: "#7B8EFF",
+      dark: "#1B3DFF",
+      contrastText: "#ffffff",
+    },
+    background: {
+      default: "#F0EFF9",
+      paper: "#FAFAFA",
+    },
+    text: {
+      primary: "#0D0D1A",
+      secondary: "#5A5E7A",
+    },
+    divider: "#E0DFF8",
+  },
 });
 
-export default theme;
+export const darkTheme = createTheme({
+  ...sharedConfig,
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#4F6BFF",
+      light: "#7B8EFF",
+      dark: "#1B3DFF",
+      contrastText: "#ffffff",
+    },
+    secondary: {
+      main: "#4F6BFF",
+      light: "#292b3a",
+      dark: "#1B3DFF",
+      contrastText: "#ffffff",
+    },
+    accent: {
+      main: "#4F6BFF",
+      light: "#7B8EFF",
+      dark: "#1B3DFF",
+      contrastText: "#ffffff",
+    },
+    background: {
+      default: "#080B18",
+      paper: "#0F1425",
+    },
+    text: {
+      primary: "#EEF0FF",
+      secondary: "#7B80A8",
+    },
+    divider: "#1E2240",
+  },
+});
+
+export default lightTheme;

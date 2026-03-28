@@ -1,14 +1,12 @@
-import { ThemeProvider, CssBaseline } from '@mui/material';
-import theme from './theme/theme';
+import { ColorModeProvider } from './context/ColorModeContext';
 import PricingSection from './components/PricingSection';
 import Footer from './components/Footer';
 
 export default function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
+    <ColorModeProvider>
       <PricingSection />
       <Footer />
-    </ThemeProvider>
+    </ColorModeProvider>
   );
 }
