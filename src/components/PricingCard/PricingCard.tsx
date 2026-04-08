@@ -26,7 +26,11 @@ interface PricingCardProps {
   onSelect: () => void;
 }
 
-export default function PricingCard({ plan, isSelected, onSelect }: PricingCardProps) {
+export default function PricingCard({
+  plan,
+  isSelected,
+  onSelect,
+}: PricingCardProps) {
   const theme = useTheme();
   const isDark = theme.palette.mode === "dark";
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -52,9 +56,7 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
       elevation={0}
       onClick={onSelect}
       sx={{
-        ml: { xs: 0, lg: isSelected ? "-36px" : 0 },
-        width: { xs: "100%", lg: isSelected ? "calc(100% + 72px)" : "100%" },
-        flexShrink: 0,
+        width: "100%",
         height: "100%",
         display: "flex",
         flexDirection: "column",
@@ -79,17 +81,19 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
             ? `0 0 0 1px ${blue}60, 0 24px 64px ${blue}35, 0 8px 24px rgba(0,0,0,0.4)`
             : `0 0 0 1px ${blue}30, 0 24px 64px ${blue}28, 0 8px 24px rgba(27,61,255,0.12)`
           : isDark
-          ? "0 1px 3px rgba(0,0,0,0.3)"
-          : "0 1px 3px rgba(0,0,0,0.06)",
+            ? "0 1px 3px rgba(0,0,0,0.3)"
+            : "0 1px 3px rgba(0,0,0,0.06)",
         "&:hover": {
-          transform: isSelected ? "scale(1.02) translateY(-2px)" : "scale(1.015) translateY(-3px)",
+          transform: isSelected
+            ? "scale(1.02) translateY(-2px)"
+            : "scale(1.015) translateY(-3px)",
           boxShadow: isSelected
             ? isDark
               ? `0 0 0 1px ${blue}70, 0 28px 72px ${blue}42, 0 10px 28px rgba(0,0,0,0.45)`
               : `0 0 0 1px ${blue}40, 0 28px 72px ${blue}35, 0 10px 28px rgba(27,61,255,0.15)`
             : isDark
-            ? `0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08)`
-            : `0 4px 20px rgba(27,61,255,0.09), 0 0 0 1px rgba(27,61,255,0.16)`,
+              ? `0 4px 20px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.08)`
+              : `0 4px 20px rgba(27,61,255,0.09), 0 0 0 1px rgba(27,61,255,0.16)`,
         },
       }}
     >
@@ -129,7 +133,7 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
             boxShadow: `0 4px 12px ${blue}40`,
           }}
         >
-          Most Popular
+          ყველაზე პოპულარული{" "}
         </Box>
       )}
 
@@ -177,14 +181,16 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
         </Typography>
 
         {/* Price */}
-        <Box sx={{ display: "flex", alignItems: "flex-end", gap: 0.5, mb: 0.5 }}>
+        <Box
+          sx={{ display: "flex", alignItems: "flex-end", gap: 0.5, mb: 0.5 }}
+        >
           <Typography
             component="span"
             sx={{
               fontSize: { xs: "2.8rem", lg: "2.6rem" },
               fontWeight: 900,
               lineHeight: 1,
-              color: theme.palette.text.primary,
+              color: blue,
               letterSpacing: "-0.04em",
               fontFeatureSettings: '"tnum"',
               fontVariantNumeric: "tabular-nums",
@@ -207,7 +213,7 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
           </Typography>
         </Box>
 
-        <Typography
+        {/* <Typography
           variant="caption"
           sx={{
             color: theme.palette.text.secondary,
@@ -218,7 +224,7 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
           }}
         >
           {plan.billingNote}
-        </Typography>
+        </Typography> */}
 
         {/* Content summary pill */}
         <Box
@@ -246,7 +252,9 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
         {/* Divider */}
         <Divider
           sx={{
-            borderColor: isDark ? "rgba(255,255,255,0.07)" : "rgba(27,61,255,0.08)",
+            borderColor: isDark
+              ? "rgba(255,255,255,0.07)"
+              : "rgba(27,61,255,0.08)",
             mb: 2,
           }}
         />
@@ -255,7 +263,10 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
         {isMobile ? (
           <>
             <Box
-              onClick={(e) => { e.stopPropagation(); setServicesOpen((p) => !p); }}
+              onClick={(e) => {
+                e.stopPropagation();
+                setServicesOpen((p) => !p);
+              }}
               sx={{
                 display: "flex",
                 alignItems: "center",
@@ -267,8 +278,17 @@ export default function PricingCard({ plan, isSelected, onSelect }: PricingCardP
                 "&:hover": { opacity: 0.7 },
               }}
             >
-              <Typography variant="body2" sx={{ fontWeight: 600, color: theme.palette.text.secondary, fontSize: "0.78rem" }}>
-                {servicesOpen ? "დამალვა" : `სერვისების ნახვა (${plan.features.length})`}
+              <Typography
+                variant="body2"
+                sx={{
+                  fontWeight: 600,
+                  color: theme.palette.text.secondary,
+                  fontSize: "0.78rem",
+                }}
+              >
+                {servicesOpen
+                  ? "დამალვა"
+                  : `სერვისების ნახვა (${plan.features.length})`}
               </Typography>
               <IconButton
                 size="small"
@@ -302,17 +322,24 @@ interface FeatureListProps {
 
 function FeatureList({ features, isSelected }: FeatureListProps) {
   const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const blue = theme.palette.primary.main;
 
   return (
     <List dense disablePadding sx={{ mt: 0.5 }}>
       {features.map((feature, idx) => (
-        <ListItem key={idx} disableGutters sx={{ py: 0.4, alignItems: "flex-start" }}>
+        <ListItem
+          key={idx}
+          disableGutters
+          sx={{ py: 0.4, alignItems: "flex-start" }}
+        >
           <ListItemIcon sx={{ minWidth: 24, mt: "3px" }}>
-            {isSelected ? (
+            {isSelected || isMobile ? (
               <CheckCircleIcon sx={{ fontSize: "0.85rem", color: blue }} />
             ) : (
-              <CheckCircleOutlineIcon sx={{ fontSize: "0.85rem", color: `${blue}80` }} />
+              <CheckCircleOutlineIcon
+                sx={{ fontSize: "0.85rem", color: `${blue}80` }}
+              />
             )}
           </ListItemIcon>
           <ListItemText

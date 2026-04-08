@@ -92,10 +92,11 @@ export default function PricingSection() {
               },
             }}
           >
-            ხატიას <em>ძალიან</em> მაგარი საიტი
+            მიიღე სოციალური მედიის მარკეტინგის სრული მომსახურება <em>Growin</em>
+            -ში
           </Typography>
 
-          <Typography
+          {/* <Typography
             variant="body1"
             sx={{
               color: theme.palette.text.secondary,
@@ -106,9 +107,8 @@ export default function PricingSection() {
               mb: 4,
             }}
           >
-            აქ შეგიძლია რამე მოკლე ტექსტი დაწერო, რომლითაც ადამიანი მიხვდება
-            საიტზე რა უნდა.
-          </Typography>
+            some label
+          </Typography> */}
 
           {/* Dark mode toggle */}
           <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1.5 }}>
@@ -163,27 +163,22 @@ export default function PricingSection() {
         {/* ── Cards ── */}
         <Box
           sx={{
-            display: "flex",
-            flexWrap: { xs: "wrap", lg: "nowrap" },
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "1fr",
+              sm: "1fr 1fr",
+              lg: "repeat(3, 1fr)",
+            },
             gap: { xs: 2, md: 3 },
-            justifyContent: "center",
-            alignItems: "stretch",
           }}
         >
           {pricingPlans.map((plan) => (
             <Box
               key={plan.id}
               sx={{
-                flex: {
-                  xs: "1 1 100%",
-                  sm: "1 1 calc(50% - 8px)",
-                  lg: selectedId === plan.id ? "1.6 1 0" : "1.4 1 0",
-                },
                 position: "relative",
                 zIndex: selectedId === plan.id ? 2 : 0,
-                minWidth: 0,
                 display: "flex",
-                transition: "flex-grow 0.3s cubic-bezier(0.4,0,0.2,1)",
               }}
             >
               <PricingCard
@@ -196,7 +191,7 @@ export default function PricingSection() {
         </Box>
 
         {/* ── Bottom note ── */}
-        <Box sx={{ textAlign: "center", mt: 7 }}>
+        {/* <Box sx={{ textAlign: "center", mt: 7 }}>
           <Typography
             variant="body2"
             sx={{ color: theme.palette.text.secondary, fontSize: "0.82rem" }}
@@ -219,7 +214,7 @@ export default function PricingSection() {
             </Box>{" "}
             for a custom quote.
           </Typography>
-        </Box>
+        </Box> */}
       </Container>
     </Box>
   );

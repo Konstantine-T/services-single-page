@@ -96,7 +96,6 @@ export default function Footer() {
       />
 
       <Container maxWidth="xl" sx={{ position: "relative" }}>
-
         {/* ── Large CTA band ── */}
         <Box
           sx={{
@@ -135,16 +134,21 @@ export default function Footer() {
             </Typography>
             <Typography
               variant="body1"
-              sx={{ color: mutedText, maxWidth: 420, lineHeight: 1.7, fontSize: "0.9rem" }}
+              sx={{
+                color: mutedText,
+                maxWidth: 420,
+                lineHeight: 1.7,
+                fontSize: "0.9rem",
+              }}
             >
-              Let's discuss which package aligns with your goals.
-              We'll get back to you within 24 hours.
+              Let's discuss which package aligns with your goals. We'll get back
+              to you within 24 hours.
             </Typography>
           </Box>
 
           <Box
             component="a"
-            href="mailto:hello@digitalscalestudio.ge"
+            href="mailto:growinagency0@gmail.com"
             sx={{
               flexShrink: 0,
               display: "inline-flex",
@@ -179,7 +183,6 @@ export default function Footer() {
 
         {/* ── Links grid ── */}
         <Grid container spacing={{ xs: 5, md: 6 }}>
-
           {/* Brand column */}
           <Grid item xs={12} md={4}>
             <Box sx={{ mb: 3 }}>
@@ -231,7 +234,13 @@ export default function Footer() {
 
             <Typography
               variant="body2"
-              sx={{ color: mutedText, lineHeight: 1.8, mb: 4, maxWidth: 280, fontSize: "0.85rem" }}
+              sx={{
+                color: mutedText,
+                lineHeight: 1.8,
+                mb: 4,
+                maxWidth: 280,
+                fontSize: "0.85rem",
+              }}
             >
               A results-driven social media agency helping brands grow through
               strategic content, creative design, and data-backed advertising.
@@ -239,11 +248,28 @@ export default function Footer() {
 
             <Stack spacing={1.75}>
               {[
-                { icon: <EmailOutlinedIcon />, label: "hello@digitalscalestudio.ge", href: "mailto:hello@digitalscalestudio.ge" },
-                { icon: <PhoneOutlinedIcon />, label: "+995 555 123 456", href: "tel:+995555123456" },
+                {
+                  icon: <EmailOutlinedIcon />,
+                  label: "growinagency0@gmail.com",
+                  href: "mailto:growinagency0@gmail.com",
+                },
+                {
+                  icon: <PhoneOutlinedIcon />,
+                  label: "+995 555 123 456",
+                  href: "tel:+995555123456",
+                },
               ].map(({ icon, label, href }) => (
-                <Box key={label} sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
-                  <Box sx={{ color: `${blue}90`, display: "flex", fontSize: "0.9rem" }}>
+                <Box
+                  key={label}
+                  sx={{ display: "flex", alignItems: "center", gap: 1.5 }}
+                >
+                  <Box
+                    sx={{
+                      color: `${blue}90`,
+                      display: "flex",
+                      fontSize: "0.9rem",
+                    }}
+                  >
                     {icon}
                   </Box>
                   <Link
@@ -261,10 +287,20 @@ export default function Footer() {
                 </Box>
               ))}
               <Box sx={{ display: "flex", alignItems: "flex-start", gap: 1.5 }}>
-                <Box sx={{ color: `${blue}90`, display: "flex", fontSize: "0.9rem", mt: "2px" }}>
+                <Box
+                  sx={{
+                    color: `${blue}90`,
+                    display: "flex",
+                    fontSize: "0.9rem",
+                    mt: "2px",
+                  }}
+                >
                   <LocationOnOutlinedIcon />
                 </Box>
-                <Typography variant="body2" sx={{ color: linkText, fontSize: "0.82rem" }}>
+                <Typography
+                  variant="body2"
+                  sx={{ color: linkText, fontSize: "0.82rem" }}
+                >
                   Tbilisi, Georgia
                 </Typography>
               </Box>
@@ -385,7 +421,13 @@ export default function Footer() {
                     >
                       {value}
                     </Typography>
-                    <Typography sx={{ fontSize: "0.72rem", color: mutedText, fontWeight: 500 }}>
+                    <Typography
+                      sx={{
+                        fontSize: "0.72rem",
+                        color: mutedText,
+                        fontWeight: 500,
+                      }}
+                    >
                       {label}
                     </Typography>
                   </Box>
@@ -407,7 +449,10 @@ export default function Footer() {
             gap: 2,
           }}
         >
-          <Typography variant="caption" sx={{ color: mutedText, fontSize: "0.75rem" }}>
+          <Typography
+            variant="caption"
+            sx={{ color: mutedText, fontSize: "0.75rem" }}
+          >
             © {currentYear} digital SCALE studio. All rights reserved.
           </Typography>
 

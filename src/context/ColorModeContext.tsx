@@ -17,7 +17,7 @@ export function useColorMode() {
 }
 
 export function ColorModeProvider({ children }: { children: ReactNode }) {
-  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const [mode, setMode] = useState<'light' | 'dark'>('dark');
 
   const toggleColorMode = useCallback(() => {
     setMode((prev) => (prev === 'light' ? 'dark' : 'light'));
