@@ -42,7 +42,7 @@ export default function PricingCard({
 
   // Active: crisp white / deep card. Inactive: glass-style tint.
   const activeBg = isDark
-    ? "linear-gradient(145deg, #141830 0%, #0F1425 100%)"
+    ? "linear-gradient(145deg, #272D4A 0%, #232840 100%)"
     : "linear-gradient(145deg, #FFFFFF 0%, #F8F8FF 100%)";
 
   const inactiveBg = isDark
@@ -190,7 +190,7 @@ export default function PricingCard({
               fontSize: { xs: "2.8rem", lg: "2.6rem" },
               fontWeight: 900,
               lineHeight: 1,
-              color: blue,
+              color: "#1B3DFF",
               letterSpacing: "-0.04em",
               fontFeatureSettings: '"tnum"',
               fontVariantNumeric: "tabular-nums",

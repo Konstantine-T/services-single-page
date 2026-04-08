@@ -12,9 +12,23 @@ declare module "@mui/material/styles" {
 const sharedConfig: Omit<ThemeOptions, "palette"> = {
   typography: {
     fontFamily: '"Noto Sans Georgian", system-ui, -apple-system, sans-serif',
-    h1: { fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.0, textWrap: "balance" as const },
-    h2: { fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 1.0, textWrap: "balance" as const },
-    h3: { fontWeight: 800, letterSpacing: "-0.025em", textWrap: "balance" as const },
+    h1: {
+      fontWeight: 900,
+      letterSpacing: "-0.04em",
+      lineHeight: 1.0,
+      textWrap: "balance" as const,
+    },
+    h2: {
+      fontWeight: 900,
+      letterSpacing: "-0.04em",
+      lineHeight: 1.0,
+      textWrap: "balance" as const,
+    },
+    h3: {
+      fontWeight: 800,
+      letterSpacing: "-0.025em",
+      textWrap: "balance" as const,
+    },
     h4: { fontWeight: 700 },
     h5: { fontWeight: 700 },
     h6: { fontWeight: 600 },
@@ -83,32 +97,32 @@ export const darkTheme = createTheme({
   palette: {
     mode: "dark",
     primary: {
-      main: "#4F6BFF",
-      light: "#7B8EFF",
-      dark: "#1B3DFF",
+      main: "#1B3DFF",
+      light: "#4F6BFF",
+      dark: "#0F25CC",
       contrastText: "#ffffff",
     },
     secondary: {
-      main: "#4F6BFF",
+      main: "#1B3DFF",
       light: "#292b3a",
-      dark: "#1B3DFF",
+      dark: "#0F25CC",
       contrastText: "#ffffff",
     },
     accent: {
-      main: "#4F6BFF",
-      light: "#7B8EFF",
-      dark: "#1B3DFF",
+      main: "#1B3DFF",
+      light: "#4F6BFF",
+      dark: "#0F25CC",
       contrastText: "#ffffff",
     },
     background: {
-      default: "#080B18",
-      paper: "#0F1425",
+      default: "#1A1F35",
+      paper: "#232840",
     },
     text: {
-      primary: "#EEF0FF",
-      secondary: "#7B80A8",
+      primary: "#F5F6FF",
+      secondary: "#A8AECF",
     },
-    divider: "#1E2240",
+    divider: "#272D4A",
   },
 });
 

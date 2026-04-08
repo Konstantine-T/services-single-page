@@ -25,7 +25,7 @@ export default function PricingSection() {
         py: { xs: 10, md: 14 },
         px: { xs: 2, sm: 3 },
         background: isDark
-          ? "radial-gradient(ellipse 80% 60% at 50% -10%, #1B3DFF22 0%, transparent 70%), linear-gradient(180deg, #080B18 0%, #0A0D1F 100%)"
+          ? "radial-gradient(ellipse 80% 60% at 50% -10%, #1B3DFF22 0%, transparent 70%), linear-gradient(180deg, #1A1F35 0%, #1E2440 100%)"
           : "radial-gradient(ellipse 80% 60% at 50% -10%, #1B3DFF18 0%, transparent 70%), linear-gradient(180deg, #F0EFF9 0%, #E8E7F5 100%)",
         transition: "background 0.5s ease",
       }}
@@ -85,7 +85,7 @@ export default function PricingSection() {
               mb: 2.5,
               "& em": {
                 fontStyle: "normal",
-                background: `linear-gradient(135deg, ${blue} 0%, ${blueLight} 100%)`,
+                background: theme.palette.primary.dark,
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
