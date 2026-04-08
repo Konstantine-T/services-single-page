@@ -92,11 +92,10 @@ export default function PricingSection() {
               },
             }}
           >
-            მიიღე სოციალური მედიის მარკეტინგის სრული მომსახურება <em>Growin</em>
-            -ში
+            <em>Growin</em> Agency
           </Typography>
 
-          {/* <Typography
+          <Typography
             variant="body1"
             sx={{
               color: theme.palette.text.secondary,
@@ -107,8 +106,8 @@ export default function PricingSection() {
               mb: 4,
             }}
           >
-            some label
-          </Typography> */}
+            მიიღე სოციალური მედიის მარკეტინგის სრული მომსახურება Growin-ში.
+          </Typography>
 
           {/* Dark mode toggle */}
           <Box sx={{ display: "inline-flex", alignItems: "center", gap: 1.5 }}>
