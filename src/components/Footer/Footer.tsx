@@ -14,31 +14,21 @@ import EmailOutlinedIcon from "@mui/icons-material/EmailOutlined";
 import PhoneOutlinedIcon from "@mui/icons-material/PhoneOutlined";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import InstagramIcon from "@mui/icons-material/Instagram";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
+// import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 
-const footerLinks = {
-  services: [
-    { label: "Content Management", href: "#" },
-    { label: "Ad Budget Management", href: "#" },
-    { label: "Reporting & Analytics", href: "#" },
-    { label: "Brand Strategy", href: "#" },
-    { label: "Design & Creative", href: "#" },
-  ],
-  company: [
-    { label: "About Us", href: "#" },
-    { label: "Our Work", href: "#" },
-    { label: "Case Studies", href: "#" },
-    { label: "Blog", href: "#" },
-    { label: "Careers", href: "#" },
-  ],
-};
-
 const socialLinks = [
-  { icon: <InstagramIcon fontSize="small" />, label: "Instagram", href: "#" },
-  { icon: <LinkedInIcon fontSize="small" />, label: "LinkedIn", href: "#" },
-  { icon: <FacebookIcon fontSize="small" />, label: "Facebook", href: "#" },
+  {
+    icon: <InstagramIcon fontSize="small" target="_blank" />,
+    label: "Instagram",
+    href: "https://www.instagram.com/growin__agency",
+  },
+  {
+    icon: <FacebookIcon fontSize="small" target="_blank" />,
+    label: "Facebook",
+    href: "https://www.facebook.com/people/Growin-SMM-Agency/61575597174850/",
+  },
 ];
 
 export default function Footer() {
@@ -198,7 +188,7 @@ export default function Footer() {
                   mb: 0.5,
                 }}
               >
-                digital
+                The
               </Typography>
               <Typography
                 component="span"
@@ -215,7 +205,7 @@ export default function Footer() {
                   mb: 0.5,
                 }}
               >
-                SCALE
+                GROWIN
               </Typography>
               <Typography
                 component="span"
@@ -228,7 +218,7 @@ export default function Footer() {
                   display: "block",
                 }}
               >
-                studio
+                Agency
               </Typography>
             </Box>
 
@@ -301,14 +291,14 @@ export default function Footer() {
                   variant="body2"
                   sx={{ color: linkText, fontSize: "0.82rem" }}
                 >
-                  Tbilisi, Georgia
+                  Tbilisi, Gotua Street #5
                 </Typography>
               </Box>
             </Stack>
           </Grid>
 
           {/* Services */}
-          <Grid item xs={6} md={2}>
+          {/* <Grid item xs={6} md={2}>
             <Typography
               sx={{
                 fontSize: "0.65rem",
@@ -339,10 +329,10 @@ export default function Footer() {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Grid> */}
 
           {/* Company */}
-          <Grid item xs={6} md={2}>
+          {/* <Grid item xs={6} md={2}>
             <Typography
               sx={{
                 fontSize: "0.65rem",
@@ -373,7 +363,7 @@ export default function Footer() {
                 </Link>
               ))}
             </Stack>
-          </Grid>
+          </Grid> */}
 
           {/* Stats / trust signals */}
           <Grid item xs={12} md={4}>
@@ -392,10 +382,13 @@ export default function Footer() {
             </Typography>
             <Grid container spacing={2}>
               {[
-                { value: "120+", label: "Brands Scaled" },
-                { value: "4.9★", label: "Client Rating" },
-                { value: "3x", label: "Avg. Growth" },
-                { value: "24h", label: "Response Time" },
+                { value: "300+", label: "კმაყოფილი კლიენტი" },
+                {
+                  value: "4.9★",
+                  label: "შეფასება მომსახურებული კომპანიებისგან",
+                },
+                { value: "200+", label: "გაზრდილი კლიენტი" },
+                { value: "20+", label: "განვითარებული კომპანია" },
               ].map(({ value, label }) => (
                 <Grid item xs={6} key={label}>
                   <Box
@@ -453,7 +446,7 @@ export default function Footer() {
             variant="caption"
             sx={{ color: mutedText, fontSize: "0.75rem" }}
           >
-            © {currentYear} digital SCALE studio. All rights reserved.
+            © {currentYear} Growin Agency. ყველა უფლება დაცულია.
           </Typography>
 
           <Box sx={{ display: "flex", gap: 0.5 }}>
@@ -484,7 +477,7 @@ export default function Footer() {
             ))}
           </Box>
 
-          <Box sx={{ display: "flex", gap: 3 }}>
+          {/* <Box sx={{ display: "flex", gap: 3 }}>
             {["Privacy Policy", "Terms of Service"].map((item) => (
               <Link
                 key={item}
@@ -500,7 +493,7 @@ export default function Footer() {
                 {item}
               </Link>
             ))}
-          </Box>
+          </Box> */}
         </Box>
       </Container>
     </Box>

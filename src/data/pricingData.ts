@@ -69,6 +69,7 @@ export const pricingPlans: PricingPlan[] = [
       { label: "რეპორტინგი და ანალიზი" },
       { label: "ქოფივრაითინგი" },
       { label: "კონკურენტების ანალიზი" },
+      { label: "მოდელის მომსახურება" },
     ],
   },
   {
