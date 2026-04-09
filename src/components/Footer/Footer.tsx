@@ -180,20 +180,6 @@ export default function Footer() {
               <Typography
                 component="span"
                 sx={{
-                  fontSize: "0.7rem",
-                  fontWeight: 800,
-                  color: mutedText,
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  display: "block",
-                  mb: 0.5,
-                }}
-              >
-                The
-              </Typography>
-              <Typography
-                component="span"
-                sx={{
                   fontSize: "2.4rem",
                   fontWeight: 900,
                   background: `linear-gradient(135deg, ${blue} 0%, ${blueLight} 100%)`,
@@ -211,7 +197,7 @@ export default function Footer() {
               <Typography
                 component="span"
                 sx={{
-                  fontSize: "0.7rem",
+                  fontSize: "1rem",
                   fontWeight: 800,
                   color: mutedText,
                   letterSpacing: "0.2em",
@@ -389,12 +375,12 @@ export default function Footer() {
             </Typography> */}
             <Grid container spacing={2}>
               {[
-                { value: "300+", label: "კმაყოფილი კლიენტი" },
+                { value: "300+", label: "კმაყოფილი მომხმარებელი" },
                 {
                   value: "4.9★",
                   label: "შეფასება მომსახურებული კომპანიებისგან",
                 },
-                { value: "200+", label: "გაზრდილი კლიენტი" },
+                { value: "200+", label: "განვითარებული ბიზნესი" },
                 { value: "20+", label: "განვითარებული კომპანია" },
               ].map(({ value, label }) => (
                 <Grid item xs={6} key={label}>
