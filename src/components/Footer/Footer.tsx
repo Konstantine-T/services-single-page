@@ -109,7 +109,7 @@ export default function Footer() {
                 mb: 1.5,
               }}
             >
-              Ready to{" "}
+              მზად ხარ{" "}
               <Box
                 component="span"
                 sx={{
@@ -119,7 +119,7 @@ export default function Footer() {
                   backgroundClip: "text",
                 }}
               >
-                grow your brand?
+                განავითარო შენი ბრენდი?
               </Box>
             </Typography>
             <Typography
@@ -131,14 +131,15 @@ export default function Footer() {
                 fontSize: "0.9rem",
               }}
             >
-              Let's discuss which package aligns with your goals. We'll get back
-              to you within 24 hours.
+              მიიღე სოციალური მედიის მარკეტინგის სრული მომსახურება Growin-ში.
             </Typography>
           </Box>
 
           <Box
             component="a"
-            href="mailto:growinagency0@gmail.com"
+            href="https://mail.google.com/mail/?view=cm&to=growinagency0@gmail.com"
+            target="_blank"
+            rel="noopener noreferrer"
             sx={{
               flexShrink: 0,
               display: "inline-flex",
@@ -163,7 +164,7 @@ export default function Footer() {
             }}
           >
             <EmailOutlinedIcon sx={{ fontSize: "1rem" }} />
-            Get in Touch
+            დაგვიკავშირდი
             <ArrowOutwardIcon sx={{ fontSize: "0.9rem", opacity: 0.8 }} />
           </Box>
         </Box>
@@ -222,7 +223,7 @@ export default function Footer() {
               </Typography>
             </Box>
 
-            <Typography
+            {/* <Typography
               variant="body2"
               sx={{
                 color: mutedText,
@@ -234,14 +235,14 @@ export default function Footer() {
             >
               A results-driven social media agency helping brands grow through
               strategic content, creative design, and data-backed advertising.
-            </Typography>
+            </Typography> */}
 
             <Stack spacing={1.75}>
               {[
                 {
                   icon: <EmailOutlinedIcon />,
                   label: "growinagency0@gmail.com",
-                  href: "mailto:growinagency0@gmail.com",
+                  href: "https://mail.google.com/mail/?view=cm&to=growinagency0@gmail.com",
                 },
                 {
                   icon: <PhoneOutlinedIcon />,
@@ -264,6 +265,12 @@ export default function Footer() {
                   </Box>
                   <Link
                     href={href}
+                    target={href.startsWith("https") ? "_blank" : undefined}
+                    rel={
+                      href.startsWith("https")
+                        ? "noopener noreferrer"
+                        : undefined
+                    }
                     underline="none"
                     sx={{
                       color: linkText,
@@ -367,7 +374,7 @@ export default function Footer() {
 
           {/* Stats / trust signals */}
           <Grid item xs={12} md={4}>
-            <Typography
+            {/* <Typography
               sx={{
                 fontSize: "0.65rem",
                 fontWeight: 800,
@@ -379,7 +386,7 @@ export default function Footer() {
               }}
             >
               By the numbers
-            </Typography>
+            </Typography> */}
             <Grid container spacing={2}>
               {[
                 { value: "300+", label: "კმაყოფილი კლიენტი" },

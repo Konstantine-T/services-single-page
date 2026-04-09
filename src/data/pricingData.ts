@@ -3,11 +3,11 @@ import type { PricingPlan } from "../types/pricing";
 export const pricingPlans: PricingPlan[] = [
   {
     id: "launch",
-    name: "Growin One",
+    name: "Growin One (ერთჯერადი)",
     price: 550,
     currency: "GEL",
     billingNote: "დღგ-ს გარეშე თუ რაღაც ეგეთი",
-    contentSummary: "ერთჯერადი 1 პოსტერი/1 ვიდეო",
+    contentSummary: "1 პოსტერი/1 ვიდეო",
     features: [
       { label: "გვერდების შექმნა და მოწესრიგება" },
       { label: "სარეკლამო პორთფოლიოს შექმნა და მოწესრიგება" },
@@ -89,6 +89,7 @@ export const pricingPlans: PricingPlan[] = [
       { label: "ქოფივრაითინგი" },
       { label: "კონკურენტების ანალიზი" },
       { label: "საბეჭდი მასალები" },
+      { label: "მოდელის მომსახურება" },
     ],
   },
   {
@@ -109,6 +110,7 @@ export const pricingPlans: PricingPlan[] = [
       { label: "კონკურენტების ანალიზი" },
       { label: "საბეჭდი მასალები" },
       { label: "ბრენდბუქი" },
+      { label: "მოდელის მომსახურება" },
     ],
   },
 ];
