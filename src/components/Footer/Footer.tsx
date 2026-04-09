@@ -284,7 +284,7 @@ export default function Footer() {
                   variant="body2"
                   sx={{ color: linkText, fontSize: "0.82rem" }}
                 >
-                  Tbilisi, Gotua Street #5
+                  Tbilisi, Gotua Street #1
                 </Typography>
               </Box>
             </Stack>
