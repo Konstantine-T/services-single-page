@@ -1,10 +1,17 @@
 import { Box, Container, Typography, useTheme } from "@mui/material";
 
 const services = [
-  { price: 300, label: "ერთჯერადი ედვერთაიზინგის კონსულტაცია" },
-  { price: 200, label: "ლოგო" },
+  {
+    price: 300,
+    label:
+      "ერთჯერადი ედვერთაიზინგის კონსულტაცია (რეკლამირების სწავლა საბაზისო დონეზე)",
+  },
+  { price: 200, label: "ლოგოს დიზაინის დამზადება" },
   { price: 350, label: "ერთჯერადი გადაღება / მონტაჟი" },
-  { price: 250, label: "სავიზიტო ბარათი" },
+  {
+    price: 250,
+    label: "სავიზიტო ბარათის ან სხვა საბეჭდი მასალის დიზაინის დამზადება",
+  },
 ];
 
 export default function OneTimeServicesSection() {
