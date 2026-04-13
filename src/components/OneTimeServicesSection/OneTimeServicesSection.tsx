@@ -12,6 +12,14 @@ const services = [
     price: 250,
     label: "სავიზიტო ბარათის ან სხვა საბეჭდი მასალის დიზაინის დამზადება",
   },
+  {
+    price: 300,
+    label: "ბრენდბუქი",
+  },
+  {
+    price: 200,
+    label: "სარეკლამო პორთფოლიოს მოწესრიგება და ერთჯერადი რეკლამირება",
+  },
 ];
 
 export default function OneTimeServicesSection() {
